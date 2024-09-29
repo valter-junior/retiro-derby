@@ -175,10 +175,15 @@
 
         <div id="paymentResponsibleDiv" style="display: none">
           <label for="paymentResponsibleName"
-            >Responsável financeiro pela inscrição:</label
+            >Telefone (WhatsApp) do Responsável financeiro pela inscrição:</label
           ><br />
           <input
-            type="text"
+            type="tel"
+            name="Telefone"
+            placeholder="(99) 99999-9999"
+            oninput="applyPhoneMask(this)"
+            maxlength="15"
+            required
             id="paymentResponsibleName"
             name="Responsável-Pelo-pagamento"
           /><br /><br />
@@ -195,25 +200,6 @@
           <option value="3">3 x R$ 90,00</option>
           <option value="4">4 x R$ 67,50</option></select
         ><br /><br />
-      </div>
-
-      <!-- Section for kid responsible for children 5 years old or younger -->
-      <div id="kidResponsibleDiv" style="display: none">
-        <label for="kidResponsibleName">
-          Telefone (WhatsApp) do responsável pela criança menor ou igual a 5 anos (deve ser o mesmo usado para a inscrição do responsável):
-        </label>
-        <br/>
-        <input
-          type="tel"
-          placeholder="(99) 99999-9999"
-          oninput="applyPhoneMask(this)"
-          maxlength="15"
-          requiredype="text"
-          id="kidResponsibleName"
-          name="Responsável-Pela-Criança"
-        />
-        <br />
-        <br />
       </div>
 
       <input id="submit" type="submit" value="Confirmar" />
