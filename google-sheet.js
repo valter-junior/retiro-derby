@@ -8,20 +8,30 @@ const backButton = document.getElementById("back-button");
 const copyPixButton = document.getElementById("copy-pix-button");
 const pixCodeInput = document.getElementById("pix-code");
 const pixTooltip = document.getElementById("pix-tooltip");
+const submitButton = document.getElementById("submit");
+
+let isSubmitting = false;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (isSubmitting) return;
+  isSubmitting = true; // Lock the form for submission
+
+  submitButton.disabled = true;
   loadingElement.style.display = "flex";
 
   fetch(scriptURL, { method: "POST", body: new FormData(form) })
     .then((response) => {
       loadingElement.style.display = "none";
       successElement.style.display = "flex";
+      isSubmitting = false;
     })
     .catch((error) => {
       console.error("Error!", error.message);
       loadingElement.style.display = "none";
+      isSubmitting = false; // Unlock form submission
+      submitButton.disabled = false;
     });
 });
 
@@ -38,11 +48,9 @@ document
   });
 
 copyPixButton.addEventListener("click", () => {
-  // Select the PIX code text
   pixCodeInput.select();
-  pixCodeInput.setSelectionRange(0, 99999); // For mobile devices
+  pixCodeInput.setSelectionRange(0, 99999);
 
-  // Copy the text inside the input field
   navigator.clipboard
     .writeText(pixCodeInput.value)
     .then(() => {
