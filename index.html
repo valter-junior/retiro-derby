@@ -187,9 +187,16 @@
         </label>
         <br/>
         <input
+          type="tel"
+          placeholder="(99) 99999-9999"
+          oninput="applyPhoneMask(this)"
+          maxlength="15"
+          requiredype="text"
           id="kidResponsibleName"
           name="Responsável-Pela-Criança"
-        /><br /><br />
+        />
+        <br />
+        <br />
       </div>
 
       <input id="submit" type="submit" value="Confirmar" />
