@@ -27,7 +27,6 @@ form.addEventListener("submit", (e) => {
 
 backButton.addEventListener("click", () => {
   successElement.style.display = "none";
-  form.reset();
   window.location.reload();
 });
 
