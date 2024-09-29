@@ -100,23 +100,53 @@
         required
       /><br /><br />
 
-      <label for="gender">Sexo:</label><br />
+      <label for="age">Idade:</label><br />
+      <input
+        type="number"
+        id="age"
+        name="Idade"
+        onchange="checkAge()"
+        required
+      /><br /><br />
+
+      <div id="phoneDiv" style="display: none">
+        <label for="cellphone">Telefone (WhatsApp):</label><br />
+        <input
+          type="tel"
+          id="phone"
+          name="Telefone"
+          placeholder="(99) 99999-9999"
+          oninput="applyPhoneMask(this)"
+          maxlength="15"
+          required
+        /><br /><br />
+      </div>
+
+       <!-- Section for kid responsible for children 5 years old or younger -->
+      <div id="kidResponsibleDiv" style="display: none">
+        <label for="kidResponsibleName">
+          Telefone (WhatsApp) do responsável pela criança menor ou igual a 5 anos (deve ser o mesmo usado para a inscrição do responsável):
+        </label>
+        <br/>
+        <input
+          type="tel"
+          placeholder="(99) 99999-9999"
+          oninput="applyPhoneMask(this)"
+          maxlength="15"
+          requiredype="text"
+          id="kidResponsibleName"
+          name="Responsável-Pela-Criança"
+        />
+        <br />
+        <br />
+      </div>
+
+     <label for="gender">Sexo:</label><br />
       <select id="gender" name="Sexo" required>
         <option value="" disabled selected>Selecione</option>
         <option value="Male">Masculino</option>
         <option value="Female">Feminino</option></select
       ><br /><br />
-
-      <label for="cellphone">Telefone (WhatsApp):</label><br />
-      <input
-        type="tel"
-        id="phone"
-        name="Telefone"
-        placeholder="(99) 99999-9999"
-        oninput="applyPhoneMask(this)"
-        maxlength="15"
-        required
-      /><br /><br />
 
       <label for="church">Congregação:</label><br />
       <select id="church" name="Congregação" required>
@@ -126,15 +156,6 @@
         <option value="Piedade">Piedade</option>
         <option value="Piedade">Outra</option></select
       ><br /><br />
-
-      <label for="age">Idade:</label><br />
-      <input
-        type="number"
-        id="age"
-        name="Idade"
-        onchange="checkAge()"
-        required
-      /><br /><br />
 
       <!-- Section for payment responsibility for people over 5 years old -->
       <div id="paymentDiv" style="display: none">
