@@ -22,6 +22,7 @@
         const age = document.getElementById("age").value;
         const paymentDiv = document.getElementById("paymentDiv");
         const paymentResponsibleDiv = document.getElementById("paymentResponsibleDiv");
+        const phoneDiv = document.getElementById("phoneDiv")
         const kidResponsibleDiv = document.getElementById("kidResponsibleDiv");
         const kidResponsibleInput = document.getElementById("kidResponsibleName");
         const paymentResponsibleCheck = document.getElementById("isPaymentResponsible");
@@ -29,6 +30,7 @@
 
         if (age <= 5) {
           paymentDiv.style.display = "none";
+          phoneDiv.style.display = "none";
           paymentResponsibleDiv.style.display = "none";
           kidResponsibleDiv.style.display = "block";
           kidResponsibleInput.setAttribute("required", true);
@@ -36,6 +38,7 @@
           splitPaymentCheck.removeAttribute("required");
         } else {
           paymentDiv.style.display = "block";
+          phoneDiv.style.display = "block";
           kidResponsibleDiv.style.display = "none";
           kidResponsibleInput.removeAttribute("required");
           paymentResponsibleCheck.setAttribute("required", true);
