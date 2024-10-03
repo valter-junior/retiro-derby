@@ -22,7 +22,9 @@
         const age = document.getElementById("age").value;
         const paymentDiv = document.getElementById("paymentDiv");
         const paymentResponsibleDiv = document.getElementById("paymentResponsibleDiv");
+        const paymentResponsibleInput = document.getElementById("paymentResponsibleName")
         const phoneDiv = document.getElementById("phoneDiv")
+        const phoneInput = document.getElementById("phone")
         const kidResponsibleDiv = document.getElementById("kidResponsibleDiv");
         const kidResponsibleInput = document.getElementById("kidResponsibleName");
         const paymentResponsibleCheck = document.getElementById("isPaymentResponsible");
@@ -31,7 +33,9 @@
         if (age <= 5) {
           paymentDiv.style.display = "none";
           phoneDiv.style.display = "none";
+          phoneInput.required = false;
           paymentResponsibleDiv.style.display = "none";
+          paymentResponsibleInput.required = false;
           kidResponsibleDiv.style.display = "block";
           kidResponsibleInput.setAttribute("required", true);
           paymentResponsibleCheck.removeAttribute("required");
@@ -47,16 +51,23 @@
       }
 
       function checkPaymentResponsible() {
-        const isPaymentResponsible = document.getElementById(
-          "isPaymentResponsible"
-        ).value;
-        const paymentResponsibleDiv = document.getElementById(
-          "paymentResponsibleDiv"
-        );
+        const isPaymentResponsible = document.getElementById("isPaymentResponsible").value;
+        const paymentResponsibleDiv = document.getElementById("paymentResponsibleDiv");
+        const paymentResponsibleInput = document.getElementById("paymentResponsibleName")
+
         if (isPaymentResponsible === "Yes") {
           paymentResponsibleDiv.style.display = "none";
-        } else {
+          paymentResponsibleInput.required = false;
+        } else { 
           paymentResponsibleDiv.style.display = "block";
+        }
+      }
+
+      function checkChurch() {
+        let church = document.getElementById("church")
+        if (church.value === "Outra") {
+          const otherChurchDiv = document.getElementById("otherChurchDiv");
+          otherChurchDiv.style.display = "block";
         }
       }
 
@@ -110,7 +121,7 @@
       /><br /><br />
 
       <div id="phoneDiv" style="display: none">
-        <label for="cellphone">Telefone (WhatsApp):</label><br />
+        <label for="phone">Telefone (WhatsApp):</label><br />
         <input
           type="tel"
           id="phone"
@@ -149,14 +160,23 @@
       ><br /><br />
 
       <label for="church">Congregação:</label><br />
-      <select id="church" name="Congregação" required>
+      <select id="church" name="Congregação" required oninput="checkChurch()">
         <option value="" disabled selected>Selecione</option>
         <option value="Derby">Derby</option>
         <option value="Olinda">Pau Amarelo</option>
         <option value="Piedade">Piedade</option>
-        <option value="Piedade">Outra</option></select
+        <option value="Outra">Outra</option></select
       ><br /><br />
 
+      <div id="otherChurchDiv" style="display: none">
+        <label for="otherChurch">Nome da congregação</label>
+        <br />
+        <input
+          type="text"
+          id="otherChurch"
+        /><br /><br />
+      </div>
+     
       <!-- Section for payment responsibility for people over 5 years old -->
       <div id="paymentDiv" style="display: none">
         <label for="isPaymentResponsible"
