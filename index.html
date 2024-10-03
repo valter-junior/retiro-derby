@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Inscrição Retiro 2025</title>
     <script>
+      let newChurch = "Casas";
       function applyPhoneMask(input) {
         let value = input.value;
         // Remove any non-digit characters
@@ -21,13 +22,20 @@
       function checkAge() {
         const age = document.getElementById("age").value;
         const paymentDiv = document.getElementById("paymentDiv");
-        const paymentResponsibleDiv = document.getElementById("paymentResponsibleDiv");
-        const paymentResponsibleInput = document.getElementById("paymentResponsibleName")
-        const phoneDiv = document.getElementById("phoneDiv")
-        const phoneInput = document.getElementById("phone")
+        const paymentResponsibleDiv = document.getElementById(
+          "paymentResponsibleDiv"
+        );
+        const paymentResponsibleInput = document.getElementById(
+          "paymentResponsibleName"
+        );
+        const phoneDiv = document.getElementById("phoneDiv");
+        const phoneInput = document.getElementById("phone");
         const kidResponsibleDiv = document.getElementById("kidResponsibleDiv");
-        const kidResponsibleInput = document.getElementById("kidResponsibleName");
-        const paymentResponsibleCheck = document.getElementById("isPaymentResponsible");
+        const kidResponsibleInput =
+          document.getElementById("kidResponsibleName");
+        const paymentResponsibleCheck = document.getElementById(
+          "isPaymentResponsible"
+        );
         const splitPaymentCheck = document.getElementById("splitPayment");
 
         if (age <= 5) {
@@ -51,22 +59,31 @@
       }
 
       function checkPaymentResponsible() {
-        const isPaymentResponsible = document.getElementById("isPaymentResponsible").value;
-        const paymentResponsibleDiv = document.getElementById("paymentResponsibleDiv");
-        const paymentResponsibleInput = document.getElementById("paymentResponsibleName")
+        const isPaymentResponsible = document.getElementById(
+          "isPaymentResponsible"
+        ).value;
+        const paymentResponsibleDiv = document.getElementById(
+          "paymentResponsibleDiv"
+        );
+        const paymentResponsibleInput = document.getElementById(
+          "paymentResponsibleName"
+        );
 
         if (isPaymentResponsible === "Yes") {
           paymentResponsibleDiv.style.display = "none";
           paymentResponsibleInput.required = false;
-        } else { 
+        } else {
           paymentResponsibleDiv.style.display = "block";
         }
       }
 
       function checkChurch() {
-        let church = document.getElementById("church")
-        if (church.value === "Outra") {
+        let church = document.getElementById("church");
+
+        if (church.value === "") {
           const otherChurchDiv = document.getElementById("otherChurchDiv");
+          document.getElementById("otherChurchOption").value =
+            otherChurchDiv.value;
           otherChurchDiv.style.display = "block";
         }
       }
@@ -133,12 +150,13 @@
         /><br /><br />
       </div>
 
-       <!-- Section for kid responsible for children 5 years old or younger -->
+      <!-- Section for kid responsible for children 5 years old or younger -->
       <div id="kidResponsibleDiv" style="display: none">
         <label for="kidResponsibleName">
-          Telefone (WhatsApp) do responsável pela criança menor ou igual a 5 anos (deve ser o mesmo usado para a inscrição do responsável):
+          Telefone (WhatsApp) do responsável pela criança menor ou igual a 5
+          anos (deve ser o mesmo usado para a inscrição do responsável):
         </label>
-        <br/>
+        <br />
         <input
           type="tel"
           placeholder="(99) 99999-9999"
@@ -152,7 +170,7 @@
         <br />
       </div>
 
-     <label for="gender">Sexo:</label><br />
+      <label for="gender">Sexo:</label><br />
       <select id="gender" name="Sexo" required>
         <option value="" disabled selected>Selecione</option>
         <option value="Male">Masculino</option>
@@ -165,18 +183,15 @@
         <option value="Derby">Derby</option>
         <option value="Olinda">Pau Amarelo</option>
         <option value="Piedade">Piedade</option>
-        <option value="Outra">Outra</option></select
+        <option id="otherChurchOption" value="">Outra</option></select
       ><br /><br />
 
       <div id="otherChurchDiv" style="display: none">
         <label for="otherChurch">Nome da congregação</label>
         <br />
-        <input
-          type="text"
-          id="otherChurch"
-        /><br /><br />
+        <input type="text" id="otherChurch" /><br /><br />
       </div>
-     
+
       <!-- Section for payment responsibility for people over 5 years old -->
       <div id="paymentDiv" style="display: none">
         <label for="isPaymentResponsible"
@@ -195,7 +210,8 @@
 
         <div id="paymentResponsibleDiv" style="display: none">
           <label for="paymentResponsibleName"
-            >Telefone (WhatsApp) do Responsável financeiro pela inscrição:</label
+            >Telefone (WhatsApp) do Responsável financeiro pela
+            inscrição:</label
           ><br />
           <input
             type="tel"
@@ -249,7 +265,7 @@
               />
             </div>
           </div>
-          
+
           <div id="copy-pix-button" class="copy-button">Copiar Chave Pix</div>
 
           <div id="pix-tooltip" class="pix-tooltip" style="display: none">
@@ -261,11 +277,12 @@
             <iframe
               width="320"
               height="180"
-              src="https://www.youtube.com/embed/ppX9OPxq6Qw" 
+              src="https://www.youtube.com/embed/ppX9OPxq6Qw"
               title="Aprenda como fazer um PIX programado"
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
             </iframe>
           </div>
 
