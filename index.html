@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Inscrição Retiro 2025</title>
     <script>
+      let newChurch = "Casas";
       function applyPhoneMask(input) {
         let value = input.value;
         // Remove any non-digit characters
@@ -77,9 +78,12 @@
       }
 
       function checkChurch() {
-        const otherChurchDiv = document.getElementById("otherChurchDiv");
         let church = document.getElementById("church");
-        if (church.value === "Outra") {
+
+        if (church.value === "") {
+          const otherChurchDiv = document.getElementById("otherChurchDiv");
+          document.getElementById("otherChurchOption").value =
+            otherChurchDiv.value;
           otherChurchDiv.style.display = "block";
         } else {
           otherChurchDiv.style.display = "none";
@@ -181,7 +185,7 @@
         <option value="Derby">Derby</option>
         <option value="Olinda">Pau Amarelo</option>
         <option value="Piedade">Piedade</option>
-        <option value="Outra">Outra</option></select
+        <option id="otherChurchOption" value="">Outra</option></select
       ><br /><br />
 
       <div id="otherChurchDiv" style="display: none">
