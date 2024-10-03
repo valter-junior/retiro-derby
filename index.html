@@ -89,34 +89,6 @@
           otherChurchDiv.style.display = "none";
         }
       }
-
-      /*async function handleSubmit(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData);
-
-        console.log(data);
-
-        // Handle default responsible name logic
-        if (data.isPaymentResponsible === "Yes") {
-          data.paymentResponsibleName = data.fullName;
-        }
-
-        try {
-        } catch (e) {}
-
-        // Send the data to Google Apps Script or your backend
-        const response = await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const result = await response.json();
-        alert(result.message);
-      }*/
     </script>
   </head>
   <body>
@@ -239,6 +211,16 @@
         ><br /><br />
       </div>
 
+      <div id="restricao" class="textarea-container">
+        <label for="restricao"
+          >Você tem alguma restrição ou alguma informação que desejaria nos
+          contar?</label
+        >
+        <br />
+        <textarea type="text" id="restricao" name="Restrições"></textarea
+        ><br /><br />
+      </div>
+
       <input id="submit" type="submit" value="Confirmar" />
 
       <div id="loading" style="display: none">
@@ -251,10 +233,11 @@
         <div class="success-container">
           <div class="success-icon">✔</div>
           <h1>Inscrição realizada com sucesso!</h1>
-          <p>Obrigado por se inscrever. Deus Abençoe sua Vida!</p>
+
           <p>
-            Importante! O primeiro pagamento deve ser feito até 30.10.2024, para
-            pagamentos a vista ou parcelado.
+            Obrigado por se inscrever. Deus Abençoe sua Vida! 
+            Importante! O primeiro pagamento deve ser feito até 30.10.2024, para pagamentos à
+            vista ou parcelado.
           </p>
           <div class="pix-section">
             <p>Use o código PIX abaixo para completar o pagamento:</p>
@@ -286,6 +269,18 @@
               allowfullscreen
             >
             </iframe>
+          </div>
+
+          <div class="whatsapp-link">
+            <p>Acesse este link para entrar na minha comunidade do WhatsApp:</p>
+            <a
+              href="https://chat.whatsapp.com/JQhNTx486120ZnXCFNlhZ2"
+              target="_blank"
+              id="whatsapp-button"
+              class="copy-button"
+            >
+              Clique aqui para acessar o WhatsApp
+            </a>
           </div>
 
           <button id="back-button" class="button">
