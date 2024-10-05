@@ -74,19 +74,23 @@
           paymentResponsibleInput.required = false;
         } else {
           paymentResponsibleDiv.style.display = "block";
+          paymentResponsibleInput.required = true;
         }
       }
 
       function checkChurch() {
         let church = document.getElementById("church");
+        const otherChurchDiv = document.getElementById("otherChurchDiv");
+        const otherChurchField = document.getElementById("otherChurch");
 
         if (church.value === "") {
-          const otherChurchDiv = document.getElementById("otherChurchDiv");
           document.getElementById("otherChurchOption").value =
             otherChurchDiv.value;
           otherChurchDiv.style.display = "block";
+          otherChurchField.required = true;
         } else {
           otherChurchDiv.style.display = "none";
+          otherChurchDiv.required = false;
         }
       }
     </script>
