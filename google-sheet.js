@@ -1,6 +1,5 @@
 const scriptURL =
-  "https://script.google.com/macros/s/AKfycbzKK5VdL8R6l9Ioy_zcCsjZ8ofCfNRPGN6HW9EtdAXW9cekYFSpddAcNMu1NZk3FwkpYQ/exec";
-
+  "https://script.google.com/macros/s/AKfycbzSqKEeuFKPfGJQIFAClxyqr7f1XZQWyEo-MvgeWB3SDjD7elQScYQfCLAitJe4dnQybw/exec";
 let isSubmitting = false;
 
 const form = document.forms["subscription-form"];
